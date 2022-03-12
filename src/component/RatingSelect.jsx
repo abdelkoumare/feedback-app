@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 
 const RatingSelect = ({ select }) => {
   const [selected, setSelected] = useState(10);
+
+  const { feedbackEdit } = useContext(FeedbackContext);
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
 
   const handleChange = (e) => {
     // e.currentTarget.value ==> string ; To make it number add "+" in front

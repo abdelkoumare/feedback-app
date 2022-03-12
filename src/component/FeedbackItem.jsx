@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Card from "./shared/Card";
-import { FaTimes, FaHubspot } from "react-icons/fa";
+import { FaTimes, FaHubspot, FaEdit } from "react-icons/fa";
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 
-const FeedbackItem = ({ key, item, handleDelete }) => {
+const FeedbackItem = ({ key, item }) => {
+  const { editFeedback, handleDelete } = useContext(FeedbackContext);
   const [rating, setRating] = useState(item.rating);
-  const [text, setText] = useState(item.text);
+  //   const [text, setText] = useState(item.text);
 
   const handleClick = () => {
     setRating((prev) => {
@@ -22,9 +25,17 @@ const FeedbackItem = ({ key, item, handleDelete }) => {
         }}
       >
         <FaTimes color="purple" />
-        <FaHubspot />
+        {/* <FaHubspot /> */}
       </button>
-      <div className="text-display">{text}</div>
+      <button
+        className="edit"
+        onClick={() => {
+          editFeedback(item);
+        }}
+      >
+        <FaEdit color="purple" />
+      </button>
+      <div className="text-display">{item.text}</div>
       <button onClick={handleClick}>Click</button>
     </Card>
   );
