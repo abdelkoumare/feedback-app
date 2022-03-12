@@ -4,7 +4,7 @@ import FeedbackContext from "../context/FeedbackContext";
 import FeedbackItem from "./FeedbackItem";
 
 const FeedbackList = () => {
-  const { feedback, handleDelete } = useContext(FeedbackContext);
+  const { feedback } = useContext(FeedbackContext);
   if (!feedback || feedback.length === 0) return <p> No Feeback Yet</p>;
   return (
     <div className="feedback-list">

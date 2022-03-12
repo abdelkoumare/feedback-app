@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "./shared/Card";
-import { FaTimes, FaHubspot, FaEdit } from "react-icons/fa";
+import { FaTimes, FaEdit } from "react-icons/fa";
 import { useContext } from "react";
 import FeedbackContext from "../context/FeedbackContext";
 
